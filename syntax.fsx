@@ -1,3 +1,4 @@
+
 // ===================================
 // Introducing "let something = something else"
 // ===================================
@@ -8,6 +9,8 @@ let x = 42
 
 // val x : int = 42
 //       ^colon is for type annotations
+
+
 
 
 
@@ -54,6 +57,10 @@ let double x =
 let squareAndDouble x =
     let y = square x
     double y  // no return keyword
+
+
+
+
 
 
 (*
@@ -129,18 +136,35 @@ computation expressions are used for:
 *)
 
 
+
+
+
+
+
+
 // generate an sequence/enumerable
 seq {
-    yield! [1..10]
-    for i in [1..10] do yield square i
+    yield! [1..11]
+    if System.DateTime.Now.Hour > 12 then
+        yield! [12..24]
+    for i in [1..5] do
+        yield square i
 }
+
+
+
+
+
+
+
+
 
 
 // dummy database
 let db =
     {| Student = [
-    {| StudentId=1; Name="Alice" |}
-    {| StudentId=42; Name="Bob" |}
+        {| StudentId=1; Name="Alice" |}
+        {| StudentId=42; Name="Bob" |}
     ] |}
 
 // query a database
@@ -203,7 +227,7 @@ open System.Linq
 [1..10]
   .Select(fun x -> x * 2)   // lambda syntax in F#
   .Where(fun x -> x <= 6)
-  .Select(fun x -> String.Format($"x={x}"))
+  .Select(fun x -> $"x={x}")
   .ToArray()
 
 [1..10]
@@ -319,9 +343,16 @@ let add3 x = x + 3
 
 
 
+
+
+
 let doSomething f x =
    let y = f (x + 1)
    "hello" + y
+
+
+
+
 
 
 
@@ -350,6 +381,11 @@ Benefits of type inference
 
 * less typing
 * less noise, more logic
+
+
+
+
+
 
 
 
@@ -386,10 +422,6 @@ let GroupBy source keySelector =
 // here's proof!
 let groupBy source keySelector =
    List.groupBy keySelector source
-
-
-
-
 
 
 

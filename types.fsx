@@ -24,8 +24,16 @@ let aThing = { Id=1; Description="a thing" }
 
 
 
+
+
+
+
 // copy a record using "with"
 let anotherThing = {aThing with Id=2}
+
+
+
+
 
 
 
@@ -54,6 +62,12 @@ let aContact = {| Name="Scott"; Email="scott@example.com" |}
 // ===================================
 
 type PrimaryColor = Red | Yellow | Blue
+
+
+
+
+
+
 
 
 
